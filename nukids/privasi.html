@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kebijakan Privasi NuKids</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.65; color: #1c2b1a; background: #f6fbf3; margin: 0; padding: 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; background: #fff; }
+  h1 { color: #1b7a2e; font-size: 1.9em; margin-bottom: 0.2em; }
+  h2 { color: #1b7a2e; font-size: 1.25em; margin-top: 1.8em; border-bottom: 2px solid #d9ecd2; padding-bottom: 0.25em; }
+  .meta { color: #5a6b58; font-size: 0.95em; }
+  .ringkas { background: #eef7e9; border-left: 4px solid #1b7a2e; padding: 12px 16px; border-radius: 0 8px 8px 0; }
+  .todo { background: #fff8e1; border: 1px dashed #c9a227; padding: 10px 14px; border-radius: 8px; }
+  ul { padding-left: 1.3em; }
+  li { margin-bottom: 0.35em; }
+  a { color: #1b7a2e; }
+  footer { margin-top: 2.5em; color: #5a6b58; font-size: 0.9em; border-top: 1px solid #e2e2e2; padding-top: 1em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Kebijakan Privasi NuKids</h1>
+<p class="meta">Terakhir diperbarui: 25 November 2026 &middot; Berlaku untuk aplikasi NuKids (Android)</p>
+
+<div class="ringkas">
+<p><strong>Ringkasan singkat.</strong> NuKids adalah dompet digital untuk murid sekolah. Aplikasi ini menyimpan kunci dompet <em>di HP pengguna saja</em>, mencatat nama dan email hanya saat pendaftaran mandiri, mengirim notifikasi koin masuk dan pengumuman sekolah, dan <strong>tidak</strong> menampilkan iklan, <strong>tidak</strong> memakai analitik pihak ketiga, dan <strong>tidak</strong> menjual data pengguna.</p>
+</div>
+
+<h2>1. Siapa kami</h2>
+<p>NuKids dikembangkan oleh <strong>Nusanian</strong> sebagai dompet NUX untuk sekolah. Dompet berjalan di atas LNBits dan jaringan Lightning Nusacoin (lnd-nux). Setiap sekolah menjalankan server sekolahnya sendiri (LNSchool) — sekolah itulah yang mengoperasikan pendaftaran murid dan pembayaran di lingkungan sekolah tersebut.</p>
+<p>Pertanyaan tentang kebijakan ini dapat disampaikan kepada <strong>operator sekolah</strong> atau guru pendamping. Bila Nusanian menambahkan alamat email khusus privasi, alamat itu akan ditulis di sini.</p>
+
+<h2>2. Data yang kami kumpulkan</h2>
+<ul>
+  <li><strong>Nama dan email (pendaftaran mandiri).</strong> Saat mendaftar lewat formulir Daftar di aplikasi, nama dan email dikirim ke server sekolah untuk membuat dompet. Email dipakai sebagai pengenal peserta dan tidak boleh dipakai dua kali.</li>
+  <li><strong>Kode aktivasi.</strong> Saat aktivasi lewat kode dari guru/operator, kode sekali pakai itu dikirim ke server sekolah untuk ditukar dengan kunci dompet. Kode yang sudah dipakai tidak bisa dipakai lagi.</li>
+  <li><strong>Kunci dompet (inkey).</strong> Setelah aktivasi atau pendaftaran, server memberikan kunci dompet (inkey) ke HP. Kunci ini disimpan <em>hanya di HP</em>, di penyimpanan aman Android (Android Keystore). Kunci admin dompet (adminkey) tidak pernah keluar dari server sekolah.</li>
+  <li><strong>Alamat server.</strong> Alamat server LNBits, alamat server sekolah, dan alamat webhook notifikasi yang dipakai dompet, disimpan di HP.</li>
+  <li><strong>Riwayat transaksi dan saldo.</strong> Saldo, riwayat pembayaran, dan invoice (kode bayar) diambil dari server LNBits dan ditampilkan di aplikasi.</li>
+  <li><strong>Token notifikasi (FCM).</strong> Untuk memberi tahu saat koin masuk, aplikasi memakai Firebase Cloud Messaging (Google). Token perangkat dikirim ke relay notifikasi kami bersama ID dompet, supaya relay tahu ke HP mana notifikasi harus dikirim.</li>
+  <li><strong>Memo invoice.</strong> Bila sebuah invoice dibuat dengan memo (catatan), memo itu dapat tampil sebagai baris kedua pada notifikasi koin masuk.</li>
+  <li><strong>Pengaturan aplikasi.</strong> Bahasa, tema, satuan tampil (NUX/nusan), dan preferensi layar tetap menyala — disimpan di HP saja.</li>
+</ul>
+
+<h2>3. Data yang TIDAK kami kumpulkan</h2>
+<ul>
+  <li><strong>Tidak ada iklan</strong> dan tidak ada pelacak iklan.</li>
+  <li><strong>Tidak ada analitik pihak ketiga.</strong> Aplikasi tidak memakai layanan analitik atau pelaporan kerusakan (crash reporting) pihak ketiga.</li>
+  <li><strong>Kamera hanya untuk memindai QR.</strong> Kamera dipakai untuk memindai kode QR saat mengirim atau menerima. Tidak ada foto atau video yang disimpan atau dikirim.</li>
+  <li><strong>Tidak ada penjualan data.</strong> Data pengguna tidak dijual atau dibagikan untuk pemasaran.</li>
+</ul>
+
+<h2>4. Cara data digunakan</h2>
+<ul>
+  <li>Membuat dan membuka dompet murid (aktivasi atau pendaftaran mandiri).</li>
+  <li>Menampilkan saldo dan riwayat, serta memproses kirim dan terima melalui server sekolah dan LNBits.</li>
+  <li>Mengirim notifikasi saat koin masuk (judul, jumlah, dan memo bila ada) dan pengumuman/info harian sekolah melalui topik notifikasi per sekolah.</li>
+  <li>Memeriksa pembaruan aplikasi (OTA) dari server pembaruan kami.</li>
+</ul>
+
+<h2>5. Pihak ketiga yang menerima data</h2>
+<ul>
+  <li><strong>Server LNBits sekolah</strong> (lnnu.taobot.org) — menyimpan dompet, saldo, dan riwayat transaksi.</li>
+  <li><strong>Server sekolah (LNSchool)</strong> — memproses aktivasi, pendaftaran, dan pembayaran; menyimpan nama dan email pendaftar.</li>
+  <li><strong>Relay notifikasi</strong> (nukids.taobot.org) — menerima token FCM dan ID dompet untuk mengirim notifikasi koin masuk.</li>
+  <li><strong>Firebase Cloud Messaging (Google)</strong> — mengirim notifikasi ke HP. Kebijakan privasi Google berlaku untuk layanan ini.</li>
+  <li><strong>Server pembaruan</strong> (catchnux.taobot.org) — menyediakan berkas pembaruan aplikasi (APK) dan catatan rilis.</li>
+</ul>
+
+<h2>6. Penyimpanan dan keamanan</h2>
+<ul>
+  <li>Kunci dompet (inkey) hanya tersimpan di HP, di penyimpanan aman Android. Karena itu, <strong>bila HP hilang, saldo tidak dapat dipulihkan</strong> kecuali pengguna menyimpan cadangan inkey/adminkey dari Pengaturan lanjutan.</li>
+  <li>Token notifikasi disimpan di relay paling lama 90 hari.</li>
+  <li>Catatan pembayaran yang sudah diberitahukan disimpan di relay paling lama 24 jam, hanya untuk mencegah notifikasi ganda.</li>
+  <li>Data di HP terhapus saat pengguna menekan Keluar di aplikasi (kunci lokal dihapus) atau saat aplikasi dihapus dari HP. Dompet di server tetap ada dan dapat dipulihkan dengan kunci cadangan.</li>
+</ul>
+
+<h2>7. Data anak</h2>
+<p>NuKids dipakai oleh murid sekolah. Pendaftaran dilakukan oleh sekolah/operator (melalui kode aktivasi) atau oleh murid sendiri dengan nama dan email. Kami tidak meminta data lain dari anak, tidak menampilkan iklan, dan tidak mengarahkan konten pemasaran kepada anak. Orang tua atau wali dapat meminta penghapusan data anak melalui operator sekolah (lihat bagian 8).</p>
+
+<h2>8. Hak pengguna</h2>
+<p>Pengguna (atau orang tua/wali untuk murid) dapat:</p>
+<ul>
+  <li>Melihat saldo dan riwayat langsung di aplikasi.</li>
+  <li>Menghapus data di HP dengan menekan Keluar di aplikasi atau menghapus aplikasi.</li>
+  <li>Meminta penghapusan dompet dan data pendaftaran di server melalui operator sekolah atau melalui kontak di bagian 1.</li>
+  <li>Berhenti menerima notifikasi pengumuman dengan menonaktifkan notifikasi aplikasi di pengaturan HP (notifikasi koin masuk tetap mengikuti pendaftaran push di aplikasi).</li>
+</ul>
+
+<h2>9. Perubahan kebijakan ini</h2>
+<p>Bila kebijakan ini berubah, tanggal di atas diperbarui dan perubahan penting diumumkan melalui pengumuman di aplikasi. Penggunaan aplikasi sesudah perubahan berarti pengguna menyetujui kebijakan yang baru.</p>
+
+<h2>10. Kontak</h2>
+<p>Pertanyaan tentang kebijakan ini atau permintaan terkait data dapat disampaikan ke kontak di bagian 1.</p>
+
+<footer>
+<p>NuKids &middot; Dompet NUX untuk sekolah &middot; Kebijakan ini adalah dokumen yang disusun berdasarkan cara kerja aplikasi; bukan nasihat hukum.</p>
+</footer>
+</main>
+</body>
+</html>
